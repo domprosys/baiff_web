@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Node modules
+node_modules/
+pm-debug.log
+yarn-error.log
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
