@@ -1,0 +1,20 @@
+/* Responsive Styles - Desktop First */
+
+@media (min-width: 992px) {
+
+    /* Extend Screenings film strips to full viewport width */
+    .screenings-scroll-container {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        /* Add some padding so the first/last items don't hug the screen edge */
+        padding: 0 40px;
+        /* Ensure the box-sizing allows padding without adding to the width */
+        box-sizing: border-box;
+    }
+
+    /* Optional: Add a bit more space between the day title and the film strip */
+    .day-schedule .container {
+        margin-bottom: 2rem;
+    }
+}
