@@ -223,53 +223,20 @@ body.nav-open {
     margin-bottom: 15px; /* Reduced */
 }
 
-.competition-categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px; /* Reduced */
-    margin-bottom: 30px; /* Reduced */
-}
-
-.category-item {
-    background-color: #1A1A1A;
-    border: 1px solid #333333;
-    border-radius: 8px;
-    padding: 15px; /* Reduced */
-    width: calc(50% - 7.5px); /* Precisely for two columns with 15px gap */
-    max-width: 280px; /* Max width for each item, can be adjusted if needed */
-    /* min-width removed to allow two columns on narrow screens */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    text-align: left;
-    box-sizing: border-box; /* Ensure padding/border are included in width */
-}
-
-.category-item h4 {
-    font-size: 1.3rem;
-    color: #FFD700; /* Gold color for category titles */
-    margin-bottom: 5px; /* Reduced */
-}
-
-.category-item p {
-    font-size: 0.85rem;
-    color: #C0C0C0;
-    line-height: 1.4; /* Reduced */
-}
 
 .prize-list {
     list-style: none;
     padding: 0;
     margin: 0 auto 40px auto;
     max-width: 500px; /* Constrain width for readability */
-    text-align: left;
+    text-align: center; /* Centered the list */
 }
 
 .prize-list li {
     font-size: 1.1rem;
     color: #FFFFFF;
     margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
+    /* Removed padding and position for centering */
 }
 
 .prize-list li strong {
@@ -278,10 +245,9 @@ body.nav-open {
 
 .prize-list li::before {
     content: "🏆"; /* Trophy emoji or other icon */
-    position: absolute;
-    left: -10px;
-    top: 0px;
     font-size: 1rem;
+    margin-right: 10px; /* Space between emoji and text */
+    /* Removed absolute positioning */
 }
 
 .cta-button {
@@ -533,6 +499,50 @@ body.nav-open {
 
 .film-info-overlay .film-more-overlay:hover {
     text-decoration: underline;
+}
+
+/* Mission Epilogue Rotary Effect - Animated */
+.mission-epilogue {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.mission-epilogue-prompt {
+    font-size: 1.5rem;
+    color: #A0A0A0;
+}
+
+.mission-epilogue-keywords {
+    height: 5.4rem; /* Matches the height of 3 items (3 * 1.8rem) */
+    overflow: hidden;
+    position: relative;
+    /* The fade effect */
+    -webkit-mask-image: linear-gradient(transparent 0%, black 25%, black 75%, transparent 100%);
+    mask-image: linear-gradient(transparent 0%, black 25%, black 75%, transparent 100%);
+}
+
+.keyword-cycler-down {
+    animation: cycleDown 6s linear infinite; /* 6s for a slower, more readable scroll */
+}
+
+.keyword-cycler-down span {
+    display: block;
+    font-size: 1.5rem;
+    line-height: 1.8rem; /* 1.2 * 1.5rem */
+    color: #E0E0E0; /* All words are bright, mask handles fading */
+    text-align: left;
+}
+
+@keyframes cycleDown {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-5.4rem); /* Move up by the height of 3 items */
+    }
 }
 
 .placeholder-item {

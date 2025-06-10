@@ -11,18 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
     sectionTitles.forEach(titleElement => {
         const originalText = titleElement.textContent.trim();
         if (originalText) {
-            // Text for one segment, including trailing spaces for separation
-            const segmentText = originalText + "\u00A0"; // Using 1 non-breaking space // Using 4 non-breaking spaces
+            // The text to be repeated is the full original title plus spacing.
+            const repeatedUnit = originalText + "\u00A0\u00A0\u00A0"; // Add non-breaking spaces for separation
+
+            // Create the long string by repeating the full title unit 10 times.
+            const longText = repeatedUnit.repeat(10);
 
             // Create the wrapper that will animate
             const scrollingTextWrapper = document.createElement('div');
             scrollingTextWrapper.classList.add('scrolling-text-wrapper');
             
-            // Create and append multiple text segments for a wider scroll
-            for (let i = 0; i < 4; i++) { // Repeat 4 times
+            // Create and append two segments of the long text for a seamless loop.
+            for (let i = 0; i < 2; i++) {
                 const segment = document.createElement('span');
-                // segment.classList.add('scrolling-text-content'); // Class not strictly needed if no specific styling
-                segment.textContent = segmentText;
+                segment.textContent = longText;
                 scrollingTextWrapper.appendChild(segment);
             }
 
