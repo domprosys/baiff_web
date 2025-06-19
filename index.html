@@ -74,39 +74,67 @@
         <div class="container">
             <p class="section-intro-text">Calling all AI video filmmakers! Unleash your creativity and submit your groundbreaking work to the BAIFF competition. We are looking for innovative narratives, stunning visuals, and unique applications of artificial intelligence in filmmaking.</p>
 
-            <div id="countdown-timer" class="countdown-timer">
-                <div class="countdown-item"><span id="days">--</span><span class="countdown-label">Days</span></div>
-                <div class="countdown-item"><span id="hours">--</span><span class="countdown-label">Hours</span></div>
-                <div class="countdown-item"><span id="minutes">--</span><span class="countdown-label">Minutes</span></div>
-                <div class="countdown-item"><span id="seconds">--</span><span class="countdown-label">Seconds</span></div>
+            <!-- Redesigned countdown -->
+            <div class="countdown-wrapper">
+                <div id="countdown-timer" class="countdown-timer-line">
+                    <span id="days">--</span><span class="separator"> / </span>
+                    <span id="hours">--</span><span class="separator"> : </span>
+                    <span id="minutes">--</span><span class="separator"> : </span>
+                    <span id="seconds">--</span>
+                </div>
+                <div class="countdown-labels">
+                    <span>days</span><span>hours</span><span>minutes</span><span>seconds</span>
+                </div>
             </div>
 
+            <h3 class="subsection-title">competition awards</h3>
 
-            <h3 class="subsection-title">Prizes</h3>
-            <ul class="prize-list">
-                <li><strong>Grand Prix:</strong> 5000 euros</li>
-                <li><strong>2nd Place:</strong> 3000 euros</li>
-                <li><strong>3rd Place:</strong> 2000 euros</li>
-                <li><strong>3x Special Mentions:</strong> 1000 euros each</li>
-                <li><strong>Public's Choice:</strong> 1000 euros</li>
-                <li><strong>AI Jury Award:</strong> 1000 euros</li>
-            </ul>
+            <div class="prize-rotary">
+                <div class="prize-cycler">
+                    <span>Grand Prix Award - 5000 €</span>
+                    <span>Gold Award - 3000 €</span>
+                    <span>Silver Award - 2000 €</span>
+                    <span>3 X Special Mention Award - 1000 €</span>
+                    <span>Public's Choice Award - 1000 €</span>
+                    <span>AI Jury Prize - 1000 €</span>
+                    <span>Grand Prix Award - 5000 €</span>
+                    <span>Gold Award - 3000 €</span>
+                    <span>Silver Award - 2000 €</span>
+                    <span>3 X Special Mention Award - 1000 €</span>
+                    <span>Public's Choice Award - 1000 €</span>
+                    <span>AI Jury Prize - 1000 €</span>
+                </div>
+            </div>
 
-            <a href="https://filmfreeway.com/" target="_blank" class="cta-button">Submit Your Film on FilmFreeway</a>
+            <div class="competition-links">
+                <a href="https://www.baiff.ro/links" class="competition-link" target="_blank">read competition rules</a>
+            </div>
+
+            <a href="https://filmfreeway.com/" target="_blank" class="cta-button filmfreeway-btn">
+                submit your entry here
+                <span class="powered-by">powered by FilmFreeway</span>
+            </a>
         </div>
     </section>
 
     <!-- Sponsors Section -->
     <section id="sponsors" class="sponsors-section">
-        <h2 class="section-title">sponsors & partners &gt;_$</h2>
+        <h2 class="section-title">partners &gt;_®</h2>
         <div class="container">
             <p class="section-intro-text">These are our sponsors and partners which made possible this event and are advocating for ethical advancements in generative AI for filmmaking.</p>
-            <div class="sponsor-list">
-                <div class="sponsor-item">AVANPOST</div>
-                <div class="sponsor-item">NVIDIA</div>
-                <div class="sponsor-item">ASE</div>
-                <div class="sponsor-item">And other valued supporters</div>
+
+            <div class="sponsor-column">
+                <div class="sponsor-box">SPONSOR A</div>
+                <div class="sponsor-box">SPONSOR B</div>
+                <div class="sponsor-box">SPONSOR C</div>
             </div>
+
+            <a href="#" class="see-more-link">see more &gt;</a>
+
+            <a href="#" class="your-business-cta">
+                <span class="cta-title">your business here</span>
+                <span class="cta-subtitle">find out more&gt;</span>
+            </a>
         </div>
     </section>
 
@@ -388,12 +416,15 @@
     <section id="contact" class="contact-section">
         <h2 class="section-title">contact &gt;_x </h2>
         <div class="container">
-            <div class="social-links">
-                <a href="mailto:contact@baiff.ro" class="social-link"><span class="icon-placeholder">✉</span> contact@baiff.ro</a>
-                <a href="#" class="social-link"><span class="icon-placeholder">X</span> @baiff_ro</a>
-                <a href="#" class="social-link"><span class="icon-placeholder">📷</span> @baiff.ro</a>
-                <a href="#" class="social-link"><span class="icon-placeholder">f</span> /baiff</a>
-                <a href="#" class="social-link"><span class="icon-placeholder">▶</span> /baiff</a>
+            <div class="contact-content">
+                <div class="social-links">
+                    <a href="mailto:contact@baiff.ro" class="social-link"><span class="icon-placeholder">✉</span> contact@baiff.ro</a>
+                    <a href="#" class="social-link"><span class="icon-placeholder">X</span> @baiff_ro</a>
+                    <a href="#" class="social-link"><span class="icon-placeholder">📷</span> @baiff.ro</a>
+                    <a href="#" class="social-link"><span class="icon-placeholder">f</span> /baiff</a>
+                    <a href="#" class="social-link"><span class="icon-placeholder">▶</span> /baiff</a>
+                </div>
+                <div class="contact-message" contenteditable="true">send us a message...</div>
             </div>
         </div>
     </section>
