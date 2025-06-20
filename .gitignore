@@ -11,3 +11,8 @@ yarn-error.log
 .idea/
 *.swp
 *.swo
+
+# Development documentation files
+CLAUDE.md
+TODO.md
+INSTRUCTIONS.md
