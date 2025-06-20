@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Future JavaScript code will go here
 
     // Setup for scrolling section titles
-    const sectionTitles = document.querySelectorAll('.section-title');
+    const sectionTitles = document.querySelectorAll('.section__title');
 
     sectionTitles.forEach(titleElement => {
         const originalText = titleElement.textContent.trim();
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // We can get its preceding h3.day-title if needed, or just rely on order.
         // console.log('Setting up auto-scroll for container:', container);
 
-        const cards = container.querySelectorAll('.placeholder-item');
+        const cards = container.querySelectorAll('.card');
         console.log('Container found with cards:', cards.length, container.previousElementSibling ? container.previousElementSibling.textContent : 'Unknown Day'); // Log card count for this container
         
         if (cards.length <= 1) {
