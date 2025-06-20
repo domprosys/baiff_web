@@ -11,6 +11,3 @@ yarn-error.log
 .idea/
 *.swp
 *.swo
-
-# Claude Code
-CLAUDE.md

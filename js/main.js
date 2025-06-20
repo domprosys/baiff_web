@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const hoursEl = document.getElementById("hours");
         const minutesEl = document.getElementById("minutes");
         const secondsEl = document.getElementById("seconds");
-        const countdownTimerEl = document.getElementById("countdown-timer");
+        const countdownTimerEl = document.querySelector(".countdown-timer-grid");
 
         if (!countdownTimerEl) return; // Exit if timer element not found
 
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check if the countdown timer element exists before setting the interval
     let timerInterval; // Declare timerInterval here to be accessible in timeLeft < 0 block
-    if (document.getElementById("countdown-timer")) {
+    if (document.querySelector(".countdown-timer-grid")) {
         timerInterval = setInterval(countdownTimer, 1000);
         countdownTimer(); // Initial call to display immediately
     }

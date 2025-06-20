@@ -31,12 +31,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-content">
-            <div class="logo">B&gt;_FF</div>
-            <h1 class="hero__title">
-                Bucharest<br>
-                &gt;rtificial _ntelligence<br>
-                Film Festival
-            </h1>
+            <img src="assets/logo/baiff-hero-logo-animated.gif" alt="BAIFF - Bucharest AI Film Festival" class="logo">
         </div>
     </section>
 
@@ -59,9 +54,13 @@
                         <span>film</span>
                         <span>emotion</span>
                         <span>reaction</span>
+                        <span>scene</span>
+                        <span>shot</span>
                         <span>film</span>
                         <span>emotion</span>
                         <span>reaction</span>
+                        <span>scene</span>
+                        <span>shot</span>
                     </div>
                 </div>
             </div>
@@ -76,20 +75,33 @@
 
             <!-- Redesigned countdown -->
             <div class="countdown-wrapper">
-                <div id="countdown-timer" class="countdown-timer-line">
-                    <span id="days">--</span><span class="separator"> / </span>
-                    <span id="hours">--</span><span class="separator"> : </span>
-                    <span id="minutes">--</span><span class="separator"> : </span>
-                    <span id="seconds">--</span>
-                </div>
-                <div class="countdown-labels">
-                    <span>days</span><span>hours</span><span>minutes</span><span>seconds</span>
+                <h3 class="countdown-headline">competition entry deadline</h3>
+                <div class="countdown-timer-grid">
+                    <div class="countdown-item">
+                        <span id="days" class="countdown-number">--</span>
+                        <span class="countdown-label">days</span>
+                    </div>
+                    <span class="countdown-separator"> / </span>
+                    <div class="countdown-item">
+                        <span id="hours" class="countdown-number">--</span>
+                        <span class="countdown-label">hours</span>
+                    </div>
+                    <span class="countdown-separator"> : </span>
+                    <div class="countdown-item">
+                        <span id="minutes" class="countdown-number">--</span>
+                        <span class="countdown-label">minutes</span>
+                    </div>
+                    <span class="countdown-separator"> : </span>
+                    <div class="countdown-item">
+                        <span id="seconds" class="countdown-number">--</span>
+                        <span class="countdown-label">seconds</span>
+                    </div>
                 </div>
             </div>
 
-            <h3 class="section__subtitle">competition awards</h3>
-
-            <div class="prize-rotary">
+            <div class="prizes-wrapper">
+                <h3 class="countdown-headline">competition awards</h3>
+                <div class="prize-rotary">
                 <div class="prize-cycler">
                     <span>Grand Prix Award - 5000 €</span>
                     <span>Gold Award - 3000 €</span>
@@ -105,13 +117,14 @@
                     <span>AI Jury Prize - 1000 €</span>
                 </div>
             </div>
+            </div>
 
-            <div class="competition-links">
-                <a href="https://www.baiff.ro/links" class="competition-link" target="_blank">read competition rules</a>
+            <div class="rules-wrapper">
+                <a href="https://www.baiff.ro/rules" class="countdown-headline" target="_blank">read competition rules</a>
             </div>
 
             <a href="https://filmfreeway.com/" target="_blank" class="btn btn--primary btn--filmfreeway">
-                submit your entry here
+                <span class="btn__title">submit your entry here</span>
                 <span class="btn__subtitle">powered by FilmFreeway</span>
             </a>
         </div>
