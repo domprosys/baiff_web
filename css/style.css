@@ -761,65 +761,161 @@ body.nav-open {
 .interact-section {
     padding: 60px 20px;
     background-color: #000000;
+    color: #FFFFFF;
     text-align: center;
 }
 
-.interact-focus-text .focus-line {
+.interact-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.interact-headline {
+    font-family: 'Alte Haas Grotesk', sans-serif;
+    font-size: 2.8rem;
     font-weight: bold;
-    color: #FFFFFF;
-    margin-bottom: 20px;
-    line-height: 1.1;
+    margin: 40px 0 20px;
 }
 
-.interact-focus-text .large-text {
-    font-size: 2.2rem; /* Approximate size from design */
+.interact-description {
+    font-family: 'Branding Semilight', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 40px;
 }
 
-.interact-focus-text .vision-line {
-    font-size: 2.8rem; /* Approximate size for VISION line */
+.interact-image {
+    margin: 40px 0;
+    width: 100%;
+}
+
+.hands-image-placeholder {
+    height: 300px;
+    background-color: #222222;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Branding Semilight', sans-serif;
+    font-size: 1.2rem;
+    border-radius: 4px;
 }
 
-.interact-focus-text .highlight-box {
-    background-color: #FFFFFF;
-    color: #000000;
-    padding: 5px 15px;
-    margin: 0 10px;
+.find-heading {
+    font-family: 'Alte Haas Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 40px 0 30px;
 }
 
-.interact-paragraph {
-    font-size: 0.9rem;
-    color: #E0E0E0;
-    max-width: 600px;
-    margin: 30px auto;
-    text-align: left;
+.find-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.find-item {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.find-item h4 {
+    font-family: 'Alte Haas Grotesk', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.find-item p {
+    font-family: 'Branding Semilight', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 /* Experience Section Styles */
 .experience-section {
     padding: 60px 20px;
     background-color: #000000;
-}
-
-.experience-subheading {
-    font-size: 1.3rem;
-    font-weight: bold;
     color: #FFFFFF;
     text-align: center;
-    margin-bottom: 25px;
-    line-height: 1.4;
 }
 
-.experience-text p {
-    font-size: 0.9rem;
-    color: #E0E0E0;
-    margin-bottom: 20px;
-    text-align: left;
+.experience-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.experience-headline {
+    font-family: 'Alte Haas Grotesk', sans-serif;
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin: 40px 0 20px;
+}
+
+.experience-description {
+    font-family: 'Branding Semilight', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 60px;
+}
+
+.featured-heading {
+    font-family: 'Alte Haas Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 40px 0 30px;
+}
+
+.featured-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.featured-item {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.featured-item h4 {
+    font-family: 'Alte Haas Grotesk', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.featured-item p {
+    font-family: 'Branding Semilight', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.experience-image {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.audience-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.audience-image-placeholder {
+    height: 300px;
+    background-color: #222222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Branding Semilight', sans-serif;
+    font-size: 1.2rem;
+    border-radius: 4px;
 }
 
 .experience-image-placeholder {
@@ -879,6 +975,88 @@ body.nav-open {
 .bar-pattern-placeholder.right {
     margin-left: 15px;
     order: 1; /* Pushes it to the right when flex is used */
+}
+
+/* Creative Residency Section Styles */
+.residency-section {
+    padding: 60px 20px;
+    background-color: #000000;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.residency-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.faces-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.face {
+    max-width: 100%;
+    height: auto;
+}
+
+.face-left {
+    justify-self: start;
+}
+
+.face-right {
+    justify-self: end;
+}
+
+.residency-main-text {
+    padding: 0 20px;
+}
+
+.residency-headline {
+    font-family: 'Alte Haas Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.residency-description {
+    font-family: 'Branding Semilight', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+
+.what-to-expect {
+    margin-top: 80px;
+}
+
+.expect-heading {
+    font-family: 'Alte Haas Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.expect-item {
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.expect-item h4 {
+    font-family: 'Alte Haas Grotesk', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.expect-item p {
+    font-family: 'Branding Semilight', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 /* Panel Section Styles */
