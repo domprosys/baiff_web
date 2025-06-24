@@ -134,8 +134,8 @@ body.nav-open {
 .container {
     width: 100%;
     max-width: 100%;
-    margin: 0 auto;
-    padding: var(--space-mobile-lg) 0; /* Full width without side padding */
+    margin: 32px auto 0;
+    padding: 0; /* No padding */
 }
 
 /* ==========================================================================
@@ -508,6 +508,11 @@ body.nav-open .hamburger-menu-button {
    SECTION STYLES
    ========================================================================== */
 
+/* Universal Section Spacing */
+.section-spacing {
+    margin-top: 100px;
+}
+
 /* Hero Section */
 .hero-section {
     height: 100vh;
@@ -546,16 +551,16 @@ body.nav-open .hamburger-menu-button {
 
 
 
-.justified-text-block {
+.body-text-block {
     margin: 0 var(--space-lg);
 }
 
-.justified-text-block p {
+.body-text-block p {
     font-size: var(--font-size-small);
     color: var(--color-text-muted);
     max-width: var(--container-sm); /* Constrain line length */
     margin-bottom: var(--space-lg);
-    text-align: justify;
+    text-align: center;
     line-height: 1.4; /* More compact line spacing */
 }
 
@@ -967,6 +972,10 @@ body.nav-open .hamburger-menu-button {
     padding: 0 var(--space-md);
 }
 
+.residency-content {
+    margin-top: 0;
+}
+
 .residency-section .container {
     padding: 0;
 }
@@ -982,7 +991,7 @@ body.nav-open .hamburger-menu-button {
     font-family: var(--font-heading);
     font-size: var(--font-size-h2);
     font-weight: bold;
-    margin: var(--space-2xl) 0 var(--space-lg);
+    margin: 16px 0;
 }
 
 
@@ -993,7 +1002,7 @@ body.nav-open .hamburger-menu-button {
     font-family: var(--font-heading);
     font-size: var(--font-size-h2);
     font-weight: bold;
-    margin: var(--space-2xl) 0 var(--space-xl);
+    margin: 32px 0;
 }
 
 .section__items {
@@ -1006,8 +1015,8 @@ body.nav-open .hamburger-menu-button {
 
 .section__item {
     text-align: center;
-    padding: 0 var(--space-mobile-sm);
-    margin-bottom: var(--space-mobile-sm);
+    padding: 0;
+    margin-bottom: var(--space-mobile-lg);
     max-width: var(--container-sm);
     margin-left: auto;
     margin-right: auto;
@@ -1019,11 +1028,15 @@ body.nav-open .hamburger-menu-button {
     margin-bottom: var(--space-mobile-xs);
 }
 
+.what-to-expect .section__item h4 {
+    font-size: var(--font-size-body);
+}
+
 .section__item p {
     font-family: var(--font-body);
     font-size: var(--font-size-body);
     line-height: 1.4;
-    text-align: justify;
+    text-align: center;
 }
 
 /* Image Placeholders */
@@ -1200,6 +1213,8 @@ body.nav-open .hamburger-menu-button {
     color: var(--color-text);
     text-decoration: none;
     font-size: var(--font-size-small);
+    font-family: var(--font-heading);
+    font-weight: bold;
     display: flex;
     align-items: center;
     transition: color var(--transition-normal);
@@ -1212,7 +1227,14 @@ body.nav-open .hamburger-menu-button {
 .social-link .icon-placeholder {
     font-size: var(--font-size-body);
     margin-right: var(--space-sm);
-    color: var(--color-text);
+    color: var(--color-bg);
+    background-color: var(--color-text);
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
 }
 
 .contact-message {
@@ -1220,10 +1242,14 @@ body.nav-open .hamburger-menu-button {
     min-height: 250px;
     background: var(--color-text);
     color: var(--color-bg);
-    padding: var(--space-lg);
-    font-family: var(--font-body);
+    padding: var(--space-sm);
+    font-family: var(--font-heading);
+    font-weight: bold;
     font-size: var(--font-size-body);
     outline: none;
+    border-radius: 6px;
+    text-align: left;
+    vertical-align: top;
 }
 
 /* Competition Section */
@@ -1240,7 +1266,7 @@ body.nav-open .hamburger-menu-button {
 .site-footer {
     background-color: var(--color-text);
     color: var(--color-bg);
-    padding: var(--space-xl) var(--space-lg);
+    padding: var(--space-sm);
     text-align: center;
 }
 
@@ -1255,6 +1281,7 @@ body.nav-open .hamburger-menu-button {
 .footer-nav a {
     color: var(--color-bg);
     text-decoration: none;
+    font-family: var(--font-heading);
     font-weight: bold;
     font-size: var(--font-size-small);
     padding: var(--space-xs) var(--space-sm);
@@ -1263,6 +1290,13 @@ body.nav-open .hamburger-menu-button {
 
 .footer-nav a:hover {
     color: var(--color-border);
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
 }
 
 /* ==========================================================================
