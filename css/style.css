@@ -552,7 +552,10 @@ body.nav-open .hamburger-menu-button {
 
 
 .body-text-block {
-    margin: 0 var(--space-lg);
+    margin: 0 auto;
+    text-align: center;
+    max-width: var(--container-sm);
+    width: 100%;
 }
 
 .body-text-block p {
@@ -722,7 +725,9 @@ body.nav-open .hamburger-menu-button {
     height: 7.5rem;
     overflow: hidden;
     position: relative;
-    margin: 0 0 var(--space-xl) 0;
+    margin: 0 auto var(--space-xl) auto;
+    max-width: var(--container-sm);
+    width: 100%;
 }
 
 .prize-rotary::before {
@@ -746,13 +751,14 @@ body.nav-open .hamburger-menu-button {
 .prize-cycler {
     animation: prizeScroll 12s linear infinite;
     will-change: transform;
+    text-align: center;
 }
 
 .prize-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: baseline;
-    gap: var(--space-md);
+    gap: var(--space-lg);
     padding: 2px 0;
 }
 
@@ -767,14 +773,14 @@ body.nav-open .hamburger-menu-button {
 
 .prize-name {
     text-align: right;
-    flex: 1;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .prize-amount {
     text-align: left;
-    min-width: 90px; /* Ensures amounts align vertically */
     font-weight: normal;
+    white-space: nowrap;
 }
 
 
@@ -1197,14 +1203,14 @@ body.nav-open .hamburger-menu-button {
     margin: var(--space-mobile-xl) auto;
     max-width: var(--container-md);
     padding: 0 var(--space-mobile-xs);  /* Minimal horizontal padding */
-    padding-left: 96px;
+    text-align: center;
 }
 
 .social-links {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-md);
 }
 
