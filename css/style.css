@@ -1193,12 +1193,11 @@ body.nav-open .hamburger-menu-button {
 
 /* Contact Section */
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-mobile-lg);
+    display: block;
     margin: var(--space-mobile-xl) auto;
     max-width: var(--container-md);
     padding: 0 var(--space-mobile-xs);  /* Minimal horizontal padding */
+    padding-left: 96px;
 }
 
 .social-links {
