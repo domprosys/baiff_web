@@ -1168,13 +1168,11 @@ body.nav-open .hamburger-menu-button {
 
 .interact-image,
 .experience-image {
-    margin: var(--space-lg) 0;
+    margin: 24px 0; /* 24px top/bottom margins */
     width: 100%;
 }
 
-.experience-image {
-    margin-top: 50px;
-}
+/* Removed duplicate .experience-image rule to avoid conflicts */
 
 .experience-image img {
     width: 100%;
