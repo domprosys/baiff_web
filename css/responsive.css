@@ -40,10 +40,10 @@
     
     /* Phone Frame Wrapper */
     .mobile-frame {
-        width: 378px; /* 420px * 0.9 */
+        width: 400px;
         max-width: 90vw;
         height: calc(81vh + 48px); /* 90vh * 0.9 + 48px */
-        max-height: 858px; /* 810px + 48px */
+        max-height: 820px;
         background: #2a2a2a;
         border-radius: 36px; /* 40px * 0.9 */
         padding: 18px; /* 20px * 0.9 */
@@ -52,7 +52,7 @@
             0 0 0 11px #333, /* 12px * 0.9 */
             0 18px 54px rgba(0,0,0,0.8), /* 20px, 60px * 0.9 */
             inset 0 0 0 2px #444;
-        position: relative;
+        position: relative; /* This allows absolute positioning for hamburger */
         display: flex;
         flex-direction: column;
         z-index: 10; /* Above video background */
@@ -118,11 +118,14 @@
         border-radius: 2px;
     }
     
-    /* Navigation stays outside frame */
-    .hamburger-menu-button,
+    /* Hide hamburger button on desktop */
+    .hamburger-menu-button {
+        display: none;
+    }
+    
     .fullscreen-nav {
         position: fixed;
-        z-index: 2000; /* Above everything */
+        z-index: 3000; /* Above everything when open */
     }
     
     /* Footer stays outside frame */
