@@ -3,6 +3,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('BAIFF website initialized');
+    
+    // Desktop Video Switching System
+    if (window.innerWidth >= 992) {
+        initializeVideoSwitching();
+    }
 
     // Cinematic Section Transitions with Intersection Observer - DISABLED FOR TESTING
     // const sections = document.querySelectorAll('.section-spacing');
@@ -177,3 +182,68 @@ document.addEventListener('DOMContentLoaded', () => {
         countdownTimer(); // Initial call to display immediately
     }
 });
+
+// Desktop Video Switching Function
+function initializeVideoSwitching() {
+    const videos = {
+        'bg-video-hero-mission': ['hero', 'mission'],
+        'bg-video-competition': ['competition', 'residency'],
+        'bg-video-experience': ['experience', 'interact', 'screenings', 'workshop', 'panel', 'sponsors', 'contact']
+    };
+    
+    const videoElements = document.querySelectorAll('.bg-video');
+    let currentActiveVideo = 'bg-video-hero-mission';
+    
+    // Preload all videos
+    videoElements.forEach(video => {
+        video.load();
+    });
+    
+    // Function to switch active video
+    function switchToVideo(videoClass) {
+        if (videoClass === currentActiveVideo) return;
+        
+        // Remove active class from current video
+        document.querySelector(`.${currentActiveVideo}`).classList.remove('active');
+        
+        // Add active class to new video and play it
+        const newVideo = document.querySelector(`.${videoClass}`);
+        newVideo.classList.add('active');
+        newVideo.play().catch(e => console.log('Video play failed:', e));
+        
+        currentActiveVideo = videoClass;
+        console.log('Switched to video:', videoClass);
+    }
+    
+    // Set up Intersection Observer for mobile screen sections
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                console.log('Section visible:', sectionId);
+                
+                // Find which video corresponds to this section
+                for (const [videoClass, sections] of Object.entries(videos)) {
+                    if (sections.includes(sectionId)) {
+                        console.log('Found match - switching to:', videoClass);
+                        switchToVideo(videoClass);
+                        break;
+                    }
+                }
+            }
+        });
+    }, {
+        root: document.querySelector('.mobile-screen'),
+        threshold: 0.5 // Trigger when 50% of section is visible
+    });
+    
+    // Observe all sections within the mobile screen
+    const sections = document.querySelectorAll('.mobile-screen .section-spacing');
+    console.log('Found sections to observe:', sections.length);
+    sections.forEach(section => {
+        if (section.id) {
+            console.log('Observing section:', section.id);
+            sectionObserver.observe(section);
+        }
+    });
+}
