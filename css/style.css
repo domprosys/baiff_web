@@ -400,6 +400,7 @@ body.nav-open .hamburger-menu-button {
 }
 
 .fullscreen-nav .nav-link {
+    font-family: var(--font-heading); /* Use Alte Haas Grotesk font */
     font-size: var(--font-size-h2);
     color: var(--color-text);
     text-decoration: none;
@@ -596,7 +597,7 @@ body.nav-open .hamburger-menu-button {
     /* scroll-snap-align: start removed - inherits from .section-spacing if applied */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Center the logo */
     align-items: center;
     text-align: center;
     padding: var(--space-mobile-md);
@@ -614,12 +615,12 @@ body.nav-open .hamburger-menu-button {
     /* padding removed - inherits from .section-spacing */
 }
 
-/* Contact section needs space for footer */
+/* Contact section - full height since no footer */
 .contact-section.section-spacing {
-    justify-content: flex-start;
-    min-height: calc(100vh - 80px); /* Make room for footer, assuming ~80px footer height */
+    justify-content: flex-start; /* Align content to top */
+    min-height: 100vh; /* Full height since footer is hidden */
     padding-top: var(--space-2xl);
-    padding-bottom: 0; /* Remove bottom padding since footer follows */
+    padding-bottom: 0;
 }
 
 .hero-content .logo {
@@ -644,6 +645,75 @@ body.nav-open .hamburger-menu-button {
 .mission-section {
     padding: 0;
     /* background-color removed - inherits from .section-spacing */
+}
+
+.mission-content {
+    padding: 0 16px; /* 16px left/right padding */
+}
+
+/* Event Info Ribbon - styled like striped button wrapper but informational */
+.event-info-ribbon {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-sm);
+    margin: var(--space-xl) 0;
+    width: 100%;
+}
+
+/* Large gap for contact section ribbon */
+.contact-section .event-info-ribbon {
+    margin-top: 8rem; /* Large gap before ribbon */
+}
+
+.event-info-ribbon::before,
+.event-info-ribbon::after {
+    content: '';
+    flex: 1;
+}
+
+.event-info-ribbon::before {
+    background-image: repeating-linear-gradient(
+        -90deg,
+        white,
+        white 6px,
+        black 6px,
+        black 12px
+    );
+}
+
+.event-info-ribbon::after {
+    background-image: repeating-linear-gradient(
+        90deg,
+        white,
+        white 6px,
+        black 6px,
+        black 12px
+    );
+}
+
+.event-info-content {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    padding: calc(var(--space-lg) / 2) calc(var(--space-xl) / 2); /* Halved padding */
+    text-align: center;
+    font-family: var(--font-heading);
+    font-weight: bold;
+}
+
+.event-location {
+    font-size: var(--font-size-h3);
+    margin-bottom: 2px; /* Much tighter spacing */
+}
+
+.event-date {
+    font-size: var(--font-size-h2);
+    margin-bottom: 4px; /* Much tighter spacing */
+}
+
+.event-details {
+    font-size: var(--font-size-small);
+    opacity: 0.8;
+    font-style: italic;
 }
 
 
@@ -757,6 +827,11 @@ body.nav-open .hamburger-menu-button {
     text-transform: lowercase;
 }
 
+/* Override lowercase for the main competition heading */
+.competition-section .countdown-headline:first-of-type {
+    text-transform: none; /* Keep original case for "BAIFF awaits You" */
+}
+
 .countdown-headline[href] {
     text-decoration: none;
     display: block;
@@ -819,6 +894,10 @@ body.nav-open .hamburger-menu-button {
 .rules-wrapper {
     text-align: center;
     margin: var(--space-2xl) 0;
+}
+
+.rules-wrapper {
+    margin: var(--space-lg) 0; /* Half the margin: 24px instead of 48px */
 }
 
 .prize-rotary {
@@ -1106,6 +1185,7 @@ body.nav-open .hamburger-menu-button {
     font-size: var(--font-size-h2);
     font-weight: bold;
     margin: 16px 0;
+    text-align: center;
 }
 
 
@@ -1142,9 +1222,7 @@ body.nav-open .hamburger-menu-button {
     margin-bottom: var(--space-mobile-xs);
 }
 
-.what-to-expect .section__item h4 {
-    font-size: var(--font-size-body);
-}
+/* Removed - now handled by general .section__item h4 rule */
 
 .section__item p {
     font-family: var(--font-body);
@@ -1246,8 +1324,9 @@ body.nav-open .hamburger-menu-button {
     justify-self: end;
 }
 
-.residency-main-text {
-    padding: 0;
+/* Apply background images directly to residency content since wrapper was removed */
+.residency-content {
+    padding: 0 16px; /* 16px left/right padding */
     position: relative;
     text-align: center;
     background-image: 
@@ -1259,19 +1338,8 @@ body.nav-open .hamburger-menu-button {
     min-height: 200px;
 }
 
-.residency-headline {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-h1);
-    font-weight: bold;
-    margin-bottom: var(--space-xl);
-    line-height: 1.2;
-}
-
-
-
-.what-to-expect {
-    margin: var(--space-xl) var(--space-lg) 0;
-}
+/* Removed .residency-headline - now uses standard .section__headline */
+/* Removed .what-to-expect - now uses standard .items-wrapper */
 
 /* Panel Section */
 .speaker-info {
@@ -1306,7 +1374,7 @@ body.nav-open .hamburger-menu-button {
 /* Contact Section */
 .contact-content {
     display: block;
-    margin: var(--space-mobile-xl) auto;
+    margin: calc(var(--space-mobile-xl) + 24px) auto; /* Added 24px extra top margin */
     max-width: var(--container-md);
     padding: 0 var(--space-mobile-xs);  /* Minimal horizontal padding */
     text-align: center;
@@ -1316,8 +1384,10 @@ body.nav-open .hamburger-menu-button {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Align links to the left within container */
     gap: var(--space-md);
+    margin: 0 auto; /* Center the social-links container within contact-content */
+    width: fit-content; /* Shrink container to content width for proper centering */
 }
 
 .social-link {
@@ -1367,16 +1437,9 @@ body.nav-open .hamburger-menu-button {
 
 
 
-/* Footer */
+/* Footer - Hidden */
 .site-footer {
-    background-color: var(--color-text);
-    color: var(--color-bg);
-    padding: var(--space-sm);
-    text-align: center;
-    min-height: 60px; /* Ensure minimum height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: none; /* Hide the footer */
 }
 
 .footer-nav {
