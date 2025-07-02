@@ -1,8 +1,100 @@
 /* Responsive Styles - Desktop First */
 
 @media (min-width: 992px) {
+    
+    /* Desktop: Mobile Frame Container */
+    body {
+        background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #1a1a1a 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+        box-sizing: border-box;
+        /* Reset scroll properties for desktop frame */
+        scroll-snap-type: none;
+        overflow: hidden;
+    }
+    
+    /* Phone Frame Wrapper */
+    .mobile-frame {
+        width: 420px;
+        max-width: 90vw;
+        height: 90vh;
+        max-height: 900px;
+        background: #2a2a2a;
+        border-radius: 40px;
+        padding: 20px;
+        box-shadow: 
+            0 0 0 8px #1a1a1a,
+            0 0 0 12px #333,
+            0 20px 60px rgba(0,0,0,0.8),
+            inset 0 0 0 2px #444;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Phone Screen */
+    .mobile-screen {
+        flex: 1;
+        background: #000;
+        border-radius: 28px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+        /* Restore scroll behavior within frame */
+        scroll-snap-type: y mandatory;
+        scroll-behavior: auto;
+    }
+    
+    /* Hide scrollbar in phone frame */
+    .mobile-screen::-webkit-scrollbar {
+        display: none;
+    }
+    .mobile-screen {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    /* Phone Details */
+    .mobile-frame::before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 6px;
+        background: #444;
+        border-radius: 3px;
+    }
+    
+    .mobile-frame::after {
+        content: '';
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 4px;
+        background: #444;
+        border-radius: 2px;
+    }
+    
+    /* Navigation stays outside frame */
+    .hamburger-menu-button,
+    .fullscreen-nav {
+        position: fixed;
+        z-index: 2000;
+    }
+    
+    /* Footer stays outside frame */
+    .site-footer {
+        display: none; /* Hide footer on desktop */
+    }
 
-    /* Extend Screenings film strips to full viewport width */
+    /* Extend Screenings film strips to full viewport width - disabled for mobile frame */
     .screenings-scroll-container {
         width: 100%;
         padding-left: 0;
@@ -13,7 +105,7 @@
         box-sizing: border-box;
     }
 
-    /* Optional: Add a bit more space between the day title and the film strip */
+    /* Optional: Add a bit more space between the day title and the film strip - disabled for mobile frame */
     .day-schedule .container {
         margin-bottom: 2rem;
     }
