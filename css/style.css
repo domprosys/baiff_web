@@ -113,13 +113,33 @@
     padding: 0;
 }
 
+html {
+    /* Remove scroll-snap from html - move to body */
+    scroll-behavior: auto;
+    -webkit-scroll-behavior: auto;
+    
+    overflow-y: scroll;
+    height: 100%;
+    
+    /* Precise scrolling alignment */
+    scroll-padding-top: 0;
+}
+
 body {
     margin: 0;
+    height: 100%;
     font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.5;      /* Slightly tighter for mobile */
     font-size: var(--font-size-body);  /* Use our variable */
+    
+    /* Apply scroll-snap to body with less bouncy behavior */
+    scroll-snap-type: y mandatory;
+    -webkit-scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    scroll-behavior: auto; /* Disable smooth scroll to reduce bounce */
+    scroll-padding-top: 20px; /* Add padding so titles are visible when snapping */
 }
 
 /* Prevent body scroll when nav is open */
@@ -131,10 +151,10 @@ body.nav-open {
    LAYOUT COMPONENTS
    ========================================================================== */
 
-.container {
+.section-container {
     width: 100%;
     max-width: 100%;
-    margin: 96px auto 0;
+    margin: 24px auto; /* 24px top/bottom margins, auto left/right */
     padding: 0; /* No padding */
 }
 
@@ -222,7 +242,8 @@ body.nav-open {
     font-weight: bold;
     font-family: var(--font-heading);
     text-align: left;
-    margin-bottom: var(--space-sm);
+    margin-top: 16px; /* 16px top margin */
+    margin-bottom: 16px; /* 16px bottom margin */
     color: var(--color-primary);
 }
 
@@ -508,14 +529,71 @@ body.nav-open .hamburger-menu-button {
    SECTION STYLES
    ========================================================================== */
 
-/* Universal Section Spacing */
+/* Universal Section Spacing & Scroll Snap */
 .section-spacing {
-    margin-top: 100px;
+    margin-top: 0;
+    min-height: 100vh;
+    background-color: var(--color-bg); /* Consolidated from individual sections */
+    
+    /* Cross-browser scroll-snap alignment */
+    scroll-snap-align: start;
+    -webkit-scroll-snap-align: start;
+    -ms-scroll-snap-align: start;
+    
+    scroll-snap-stop: always;
+    -webkit-scroll-snap-stop: always;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 var(--space-mobile-lg);
+    box-sizing: border-box;
+    position: relative;
+    
+    /* Cinematic transitions - DISABLED FOR TESTING */
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+    /* transition: opacity 1.6s cubic-bezier(0.23, 1, 0.32, 1), 
+                transform 1.6s cubic-bezier(0.23, 1, 0.32, 1),
+                filter 1.6s cubic-bezier(0.23, 1, 0.32, 1); */
+    
+    /* Film grain overlay effect */
+    position: relative;
+    
+    /* Debug border removed */
 }
+
+/* Section becomes visible when in viewport */
+.section-spacing.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+}
+
+/* Film-like vignette effect - DISABLED FOR TESTING */
+/* .section-spacing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.8) 100%);
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.section-spacing:not(.in-view)::before {
+    opacity: 1;
+} */
 
 /* Hero Section */
 .hero-section {
     height: 100vh;
+    /* scroll-snap-align: start removed - inherits from .section-spacing if applied */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -523,6 +601,25 @@ body.nav-open .hamburger-menu-button {
     text-align: center;
     padding: var(--space-mobile-md);
     background-color: var(--color-bg);
+    
+    /* Hero is always visible */
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Mission section - keep fixed height but remove redundant padding */
+.mission-section.section-spacing {
+    justify-content: flex-start;
+    height: 100vh;
+    /* padding removed - inherits from .section-spacing */
+}
+
+/* Contact section needs space for footer */
+.contact-section.section-spacing {
+    justify-content: flex-start;
+    min-height: calc(100vh - 80px); /* Make room for footer, assuming ~80px footer height */
+    padding-top: var(--space-2xl);
+    padding-bottom: 0; /* Remove bottom padding since footer follows */
 }
 
 .hero-content .logo {
@@ -546,7 +643,7 @@ body.nav-open .hamburger-menu-button {
 /* Mission Section */
 .mission-section {
     padding: 0;
-    background-color: var(--color-bg);
+    /* background-color removed - inherits from .section-spacing */
 }
 
 
@@ -639,9 +736,11 @@ body.nav-open .hamburger-menu-button {
 /* Competition Section */
 .competition-section {
     padding: 0;
-    background-color: var(--color-bg);
+    /* background-color removed - inherits from .section-spacing */
     text-align: center;
 }
+
+/* Sections with more content can overflow viewport height - now handled by default */
 
 .countdown-wrapper {
     text-align: center;
@@ -844,7 +943,7 @@ body.nav-open .hamburger-menu-button {
     text-align: center;
 }
 
-.sponsors-section .container {
+.sponsors-section .section-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -966,9 +1065,17 @@ body.nav-open .hamburger-menu-button {
 .panel-section,
 .contact-section {
     padding: 0;
-    background-color: var(--color-bg);
+    /* background-color removed - inherits from .section-spacing */
     color: var(--color-text);
     text-align: center;
+}
+
+/* Fix scroll-snap alignment for experience and interact sections */
+.experience-section.section-spacing,
+.interact-section.section-spacing {
+    justify-content: flex-start; /* Removed !important - not needed */
+    /* align-items: stretch removed - inherits from flexbox defaults */
+    /* scroll-snap properties removed - inherited from .section-spacing */
 }
 
 .interact-content,
@@ -983,7 +1090,7 @@ body.nav-open .hamburger-menu-button {
     margin-top: 0;
 }
 
-.residency-section .container {
+.residency-section .section-container {
     padding: 0;
 }
 
@@ -1258,13 +1365,7 @@ body.nav-open .hamburger-menu-button {
     vertical-align: top;
 }
 
-/* Competition Section */
-.competition-section {
-    background-color: var(--color-background);
-    color: var(--color-text);
-    padding: 0;
-    text-align: center;
-}
+/* Competition Section duplicate removed - already defined at line 737 */
 
 
 
@@ -1274,6 +1375,10 @@ body.nav-open .hamburger-menu-button {
     color: var(--color-bg);
     padding: var(--space-sm);
     text-align: center;
+    min-height: 60px; /* Ensure minimum height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-nav {
@@ -1445,7 +1550,7 @@ body.nav-open .hamburger-menu-button {
         box-sizing: border-box;
     }
 
-    .day-schedule .container {
+    .day-schedule .section-container {
         margin-bottom: var(--space-2xl);
     }
 }

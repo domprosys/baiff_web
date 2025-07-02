@@ -3,7 +3,29 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('BAIFF website initialized');
-    // Future JavaScript code will go here
+
+    // Cinematic Section Transitions with Intersection Observer - DISABLED FOR TESTING
+    // const sections = document.querySelectorAll('.section-spacing');
+    
+    // const sectionObserver = new IntersectionObserver((entries) => {
+    //     entries.forEach(entry => {
+    //         if (entry.isIntersecting) {
+    //             // Add fade-in class when section comes into view
+    //             entry.target.classList.add('in-view');
+    //         } else {
+    //             // Remove class when section leaves view (reversible effect)
+    //             entry.target.classList.remove('in-view');
+    //         }
+    //     });
+    // }, {
+    //     threshold: 0.1, // Lower threshold to trigger earlier and not interfere with snap
+    //     rootMargin: '0px 0px 0px 0px' // Remove negative margin that interferes with scroll-snap
+    // });
+
+    // // Observe all sections
+    // sections.forEach(section => {
+    //     sectionObserver.observe(section);
+    // });
 
     // Setup for scrolling section titles
     const sectionTitles = document.querySelectorAll('.section__title');
