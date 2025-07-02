@@ -4,7 +4,6 @@
     
     /* Desktop: Mobile Frame Container */
     body {
-        background: linear-gradient(135deg, #1a1a1a 0%, #000000 50%, #1a1a1a 100%);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -14,38 +13,75 @@
         /* Reset scroll properties for desktop frame */
         scroll-snap-type: none;
         overflow: hidden;
+        position: relative;
+    }
+    
+    /* Background Video */
+    .bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+    
+    /* Video Overlay */
+    .bg-video-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 0;
     }
     
     /* Phone Frame Wrapper */
     .mobile-frame {
-        width: 420px;
+        width: 378px; /* 420px * 0.9 */
         max-width: 90vw;
-        height: 90vh;
-        max-height: 900px;
+        height: calc(81vh + 48px); /* 90vh * 0.9 + 48px */
+        max-height: 858px; /* 810px + 48px */
         background: #2a2a2a;
-        border-radius: 40px;
-        padding: 20px;
+        border-radius: 36px; /* 40px * 0.9 */
+        padding: 18px; /* 20px * 0.9 */
         box-shadow: 
-            0 0 0 8px #1a1a1a,
-            0 0 0 12px #333,
-            0 20px 60px rgba(0,0,0,0.8),
+            0 0 0 7px #1a1a1a, /* 8px * 0.9 */
+            0 0 0 11px #333, /* 12px * 0.9 */
+            0 18px 54px rgba(0,0,0,0.8), /* 20px, 60px * 0.9 */
             inset 0 0 0 2px #444;
         position: relative;
         display: flex;
         flex-direction: column;
+        z-index: 10; /* Above video background */
     }
     
     /* Phone Screen */
     .mobile-screen {
         flex: 1;
         background: #000;
-        border-radius: 28px;
+        border-radius: 25px; /* 28px * 0.9 */
         overflow-y: auto;
         overflow-x: hidden;
         position: relative;
         /* Restore scroll behavior within frame */
         scroll-snap-type: y mandatory;
         scroll-behavior: auto;
+    }
+    
+    /* Force mobile font sizes inside frame */
+    .mobile-screen .body-text-block p {
+        font-size: var(--font-size-small) !important;
+    }
+    
+    .mobile-screen .section__title {
+        font-size: var(--font-size-h2) !important;
+    }
+    
+    .mobile-screen .section__headline {
+        font-size: var(--font-size-h3) !important;
     }
     
     /* Hide scrollbar in phone frame */
@@ -61,11 +97,11 @@
     .mobile-frame::before {
         content: '';
         position: absolute;
-        top: 12px;
+        top: 11px; /* 12px * 0.9 */
         left: 50%;
         transform: translateX(-50%);
-        width: 120px;
-        height: 6px;
+        width: 108px; /* 120px * 0.9 */
+        height: 5px; /* 6px * 0.9 */
         background: #444;
         border-radius: 3px;
     }
@@ -73,10 +109,10 @@
     .mobile-frame::after {
         content: '';
         position: absolute;
-        bottom: 12px;
+        bottom: 11px; /* 12px * 0.9 */
         left: 50%;
         transform: translateX(-50%);
-        width: 50px;
+        width: 45px; /* 50px * 0.9 */
         height: 4px;
         background: #444;
         border-radius: 2px;
@@ -86,7 +122,7 @@
     .hamburger-menu-button,
     .fullscreen-nav {
         position: fixed;
-        z-index: 2000;
+        z-index: 2000; /* Above everything */
     }
     
     /* Footer stays outside frame */
