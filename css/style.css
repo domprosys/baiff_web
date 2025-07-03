@@ -139,7 +139,7 @@ body {
     -webkit-scroll-snap-type: y mandatory;
     overflow-y: auto;
     scroll-behavior: auto; /* Disable smooth scroll to reduce bounce */
-    scroll-padding-top: 20px; /* Add padding so titles are visible when snapping */
+    scroll-padding-top: 0; /* Remove offset to fix asymmetric snapping */
 }
 
 /* Prevent body scroll when nav is open */
@@ -242,9 +242,15 @@ body.nav-open {
     font-weight: bold;
     font-family: var(--font-heading);
     text-align: left;
-    margin-top: 32px;
+    padding-top: 32px;
     margin-bottom: 32px;
     color: var(--color-primary);
+    /* Move scroll-snap to title itself */
+    scroll-snap-align: start;
+    -webkit-scroll-snap-align: start;
+    -ms-scroll-snap-align: start;
+    scroll-snap-stop: always;
+    -webkit-scroll-snap-stop: always;
 }
 
 .section__subtitle {
@@ -536,13 +542,7 @@ body.nav-open .hamburger-menu-button {
     min-height: 100vh;
     background-color: var(--color-bg); /* Consolidated from individual sections */
     
-    /* Cross-browser scroll-snap alignment */
-    scroll-snap-align: start;
-    -webkit-scroll-snap-align: start;
-    -ms-scroll-snap-align: start;
-    
-    scroll-snap-stop: always;
-    -webkit-scroll-snap-stop: always;
+    /* Scroll-snap moved to .section__title for precise alignment */
     
     display: flex;
     flex-direction: column;
