@@ -16,7 +16,7 @@
         position: relative;
     }
     
-    /* Background Videos */
+    /* Background Videos - Desktop Only */
     .bg-video {
         position: fixed;
         top: 0;
@@ -33,7 +33,7 @@
         opacity: 1;
     }
     
-    /* Video Overlay */
+    /* Video Overlay - Desktop Only */
     .bg-video-overlay {
         position: fixed;
         top: 0;
@@ -44,31 +44,29 @@
         z-index: 0;
     }
     
-    /* Phone Frame Wrapper */
+    /* Simple Rectangle Frame */
     .mobile-frame {
-        width: 400px;
+        width: 450px;
         max-width: 90vw;
-        height: calc(81vh + 48px); /* 90vh * 0.9 + 48px */
+        height: calc(81vh + 48px);
         max-height: 820px;
-        background: #2a2a2a;
-        border-radius: 36px; /* 40px * 0.9 */
-        padding: 18px; /* 20px * 0.9 */
+        background: #000;
+        border-radius: 8px;
+        padding: 0;
         box-shadow: 
-            0 0 0 7px #1a1a1a, /* 8px * 0.9 */
-            0 0 0 11px #333, /* 12px * 0.9 */
-            0 18px 54px rgba(0,0,0,0.8), /* 20px, 60px * 0.9 */
-            inset 0 0 0 2px #444;
-        position: relative; /* This allows absolute positioning for hamburger */
+            0 0 0 2px #333,
+            0 20px 60px rgba(0,0,0,0.8);
+        position: relative;
         display: flex;
         flex-direction: column;
         z-index: 10; /* Above video background */
     }
     
-    /* Phone Screen */
+    /* Rectangle Screen */
     .mobile-screen {
         flex: 1;
         background: #000;
-        border-radius: 25px; /* 28px * 0.9 */
+        border-radius: 6px;
         overflow-y: auto;
         overflow-x: hidden;
         position: relative;
@@ -99,30 +97,6 @@
         scrollbar-width: none;
     }
     
-    /* Phone Details */
-    .mobile-frame::before {
-        content: '';
-        position: absolute;
-        top: 11px; /* 12px * 0.9 */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 108px; /* 120px * 0.9 */
-        height: 5px; /* 6px * 0.9 */
-        background: #444;
-        border-radius: 3px;
-    }
-    
-    .mobile-frame::after {
-        content: '';
-        position: absolute;
-        bottom: 11px; /* 12px * 0.9 */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 45px; /* 50px * 0.9 */
-        height: 4px;
-        background: #444;
-        border-radius: 2px;
-    }
     
     /* Hide hamburger button on desktop */
     .hamburger-menu-button {
@@ -153,5 +127,13 @@
     /* Optional: Add a bit more space between the day title and the film strip - disabled for mobile frame */
     .day-schedule .container {
         margin-bottom: 2rem;
+    }
+}
+
+/* Mobile: Hide video backgrounds and mobile frame */
+@media (max-width: 599px) {
+    .bg-video,
+    .bg-video-overlay {
+        display: none !important;
     }
 }

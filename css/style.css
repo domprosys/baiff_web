@@ -154,7 +154,7 @@ body.nav-open {
 .section-container {
     width: 100%;
     max-width: 100%;
-    margin: 24px auto; /* 24px top/bottom margins, auto left/right */
+    margin: 8px auto; /* Reduced top margin */
     padding: 0; /* No padding */
 }
 
@@ -242,8 +242,8 @@ body.nav-open {
     font-weight: bold;
     font-family: var(--font-heading);
     text-align: left;
-    margin-top: 16px; /* 16px top margin */
-    margin-bottom: 16px; /* 16px bottom margin */
+    margin-top: 32px;
+    margin-bottom: 32px;
     color: var(--color-primary);
 }
 
@@ -645,6 +645,13 @@ body.nav-open .hamburger-menu-button {
 .mission-section {
     padding: 0;
     /* background-color removed - inherits from .section-spacing */
+}
+
+.mission-section .section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: calc(85vh - 96px); /* 85% height minus section title margins and buffer */
 }
 
 .mission-content {
